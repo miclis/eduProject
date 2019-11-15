@@ -16,6 +16,8 @@
     "express": "^4.17.1",
     "express-session": "^1.17.0",
     "http-errors": "^1.7.3",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.16.0",
     "pug": "^2.0.4"
   },
   "devDependencies": {
