@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "gulp build",
-    "start": "npm run build && node ./dist/server.js",
+    "start": "npm run build && node ./build/bin/www.js",
     "start-dev": "gulp --dev",
     "test": "jest --passWithNoTests",
     "coverage": "jest --coverage --passWithNoTests"
