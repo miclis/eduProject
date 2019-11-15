@@ -26,7 +26,7 @@ gulp.task('clean', () => {
     return del(['build/*', 'public/css/*', 'public/js/*']);
 });
 
-// Compile Less
+// Compile Sass
 gulp.task('sass', () => {
     return gulp
         .src('./src/scss/app.scss')
