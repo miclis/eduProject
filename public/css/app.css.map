@@ -1,1 +1,0 @@
-{"version":3,"sources":["reset.less","app.less"],"names":[],"mappings":"AAAA;EACI,gBAAA;EACA,aAAa,iCAAb;;ACAJ;EACI,kBAAA","sourcesContent":["h1 {\r\n    font-size: large;\r\n    font-family: 'Courier New', Courier, monospace;\r\n}","@import './reset.less';\r\n\r\nh2 {\r\n    font-size: x-large;\r\n}"],"file":"app.css"}

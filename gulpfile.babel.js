@@ -6,7 +6,7 @@ import gutil from 'gulp-util';
 import del from 'del';
 import nodemon from 'gulp-nodemon';
 import concat from 'gulp-concat';
-import less from 'gulp-less';
+import sass from 'gulp-sass';
 import minifycss from 'gulp-cssnano';
 import uglify from 'gulp-uglify';
 import babel from 'gulp-babel';
@@ -27,11 +27,11 @@ gulp.task('clean', () => {
 });
 
 // Compile Less
-gulp.task('less', () => {
+gulp.task('sass', () => {
     return gulp
-        .src('./src/css/app.less')
+        .src('./src/scss/app.scss')
         .pipe(sourceMap ? smaps.init() : gutil.noop())
-        .pipe(less())
+        .pipe(sass())
         .pipe(isProduction ? minifycss() : gutil.noop())
         .pipe(sourceMap ? smaps.write('.') : gutil.noop())
         .pipe(gulp.dest('./public/css'));
@@ -75,11 +75,11 @@ gulp.task('server-babel', () => {
 });
 
 // Build
-gulp.task('build', gulp.series('clean', gulp.parallel('less', 'pug', 'scripts', 'server-babel')));
+gulp.task('build', gulp.series('clean', gulp.parallel('sass', 'pug', 'scripts', 'server-babel')));
 
 // Watch files for changes
 gulp.task('watch', () => {
-    gulp.watch('./src/css/*.less', gulp.series('less'));
+    gulp.watch('./src/scss/*.scss', gulp.series('sass'));
     gulp.watch('./src/server/views/*.pug', gulp.series('pug'));
     gulp.watch('./src/js/*.js', gulp.parallel('scripts'));
     gulp.watch('./src/server/**/*.js', gulp.parallel('server-babel'));

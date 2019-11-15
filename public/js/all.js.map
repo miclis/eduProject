@@ -1,1 +1,0 @@
-{"version":3,"sources":["script.js"],"names":["v","d","console","log"],"mappings":";;AAAA;;;;AACA,IAAIA,CAAC,GAAG,qBAAR;AAEA,IAAIC,CAAC,GAAG,CAAR;AACAC,OAAO,CAACC,GAAR,CAAYH,CAAZ","file":"all.js","sourcesContent":["import fs from 'fs';\r\nlet v = 'helloosssdsdfsdfsoo';\r\n\r\nvar d = 3;\r\nconsole.log(v);\r\n"]}
