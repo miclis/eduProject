@@ -1,7 +1,11 @@
 {
   "name": "edu",
   "version": "1.0.0",
-  "description": "",
+  "description": "Gulp powered Express Web App with routing.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/miclis/eduProject.git"
+  },
   "main": "index.js",
   "scripts": {
     "build": "gulp build",
