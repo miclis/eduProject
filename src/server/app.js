@@ -1,8 +1,11 @@
 import express from 'express';
 import createError from 'http-errors';
 import cookieParser from 'cookie-parser';
+const debug = require('debug')('edu:app');
 import expressSession from 'express-session';
 import favicon from 'serve-favicon';
+import mongoose from 'mongoose';
+import config from './config/keys';
 
 /**
  * App settings
@@ -21,6 +24,17 @@ app.use(
 app.use(favicon('./public/img/favicon.ico'));
 
 /**
+ * Database setup
+ */
+mongoose
+    .connect(config.MongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(debug('MongoDB Connected'))
+    .catch(err => {
+        debug('MongoDB Error');
+        debug(err);
+    });
+
+/**
  * View engine setup
  */
 app.set('views', './build/views');
@@ -31,8 +45,10 @@ app.set('view engine', 'pug');
  */
 // Routers
 import indexRouter from './routes/index.controller';
+import userRouter from './routes/user.controller';
 // Routes
 app.use('/', indexRouter);
+app.use('/user', userRouter);
 
 /**
  * Static files
