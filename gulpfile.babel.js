@@ -40,7 +40,7 @@ gulp.task('sass', () => {
 // Copy Pug Templates to build
 gulp.task('pug', () => {
     return gulp
-        .src('./src/server/views/*.pug')
+        .src('./src/server/views/**/*.pug')
         .pipe(cache('pug'))
         .pipe(gulp.dest('./build/views'));
 });
@@ -80,7 +80,7 @@ gulp.task('build', gulp.series('clean', gulp.parallel('sass', 'pug', 'scripts', 
 // Watch files for changes
 gulp.task('watch', () => {
     gulp.watch('./src/scss/*.scss', gulp.series('sass'));
-    gulp.watch('./src/server/views/*.pug', gulp.series('pug'));
+    gulp.watch('./src/server/views/**/*.pug', gulp.series('pug'));
     gulp.watch('./src/js/*.js', gulp.parallel('scripts'));
     gulp.watch('./src/server/**/*.js', gulp.parallel('server-babel'));
 });

@@ -1,14 +1,28 @@
+/**
+ * Dependencies
+ */
 import express from 'express';
 import createError from 'http-errors';
 import cookieParser from 'cookie-parser';
+const debug = require('debug')('edu:app');
 import expressSession from 'express-session';
+import favicon from 'serve-favicon';
+import mongoose from 'mongoose';
+import flash from 'connect-flash';
+import passport from 'passport';
+
+/**
+ * Configs
+ */
+import keys from './config/keys';
+require('./config/passport')(passport);
 
 /**
  * App settings
  */
 const app = express();
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false })); // Bodyparser
 app.use(cookieParser());
 app.use(
     expressSession({
@@ -17,6 +31,32 @@ app.use(
         saveUninitialized: true
     })
 );
+app.use(favicon('./public/img/favicon.ico')); // Favicon
+app.use(flash()); // Flash
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+/**
+ * Global variables
+ */
+app.use((req, res, next) => {
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    res.locals.crit_error_msg = req.flash('crit_error_msg');
+    next();
+});
+
+/**
+ * Database setup
+ */
+mongoose
+    .connect(keys.MongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(debug('MongoDB Connected'))
+    .catch(err => {
+        debug('MongoDB Error');
+        debug(err);
+    });
 
 /**
  * View engine setup
@@ -29,13 +69,18 @@ app.set('view engine', 'pug');
  */
 // Routers
 import indexRouter from './routes/index.controller';
+import userRouter from './routes/user.controller';
+
 // Routes
 app.use('/', indexRouter);
+app.use('/user', userRouter);
 
 /**
  * Static files
  */
 app.use(express.static('public')); // Can be commentet out if using proxy
+app.use('/js', express.static('../../node_modules/bootstrap/dist/js'));
+app.use('/js', express.static('../../node_modules/jquery/dist'));
 
 /**
  * Error
