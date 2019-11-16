@@ -2,6 +2,7 @@ import express from 'express';
 import createError from 'http-errors';
 import cookieParser from 'cookie-parser';
 import expressSession from 'express-session';
+import favicon from 'serve-favicon';
 
 /**
  * App settings
@@ -17,6 +18,7 @@ app.use(
         saveUninitialized: true
     })
 );
+app.use(favicon('./public/img/favicon.ico'));
 
 /**
  * View engine setup

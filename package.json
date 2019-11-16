@@ -22,7 +22,8 @@
     "http-errors": "^1.7.3",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.0",
-    "pug": "^2.0.4"
+    "pug": "^2.0.4",
+    "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",
