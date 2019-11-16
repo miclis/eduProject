@@ -54,6 +54,8 @@ app.use('/user', userRouter);
  * Static files
  */
 app.use(express.static('public')); // Can be commentet out if using proxy
+app.use('/js', express.static('../../node_modules/bootstrap/dist/js'))
+app.use('/js', express.static('../../node_modules/jquery/dist'))
 
 /**
  * Error

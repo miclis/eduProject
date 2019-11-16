@@ -1,0 +1,6 @@
+if errors != undefined
+    each err in errors
+        .alert.alert-warning.alert-dismissible.fade.show(role='alert')
+            | #{err.msg}
+            button.close(type='button' data-dismiss='alert' aria-label='Close')
+                span(aria-hidden='true') &times;
