@@ -1,12 +1,13 @@
 import validator from 'validator';
 import bcrypt from 'bcryptjs';
 const debug = require('debug')('edu:user:service');
+import passport from 'passport';
 
 // User model
 import User from '../models/User';
 
 export default class userService {
-    userService() {}
+    constructor() {}
 
     register(req, res) {
         const { name, email, password, password2 } = req.body;
@@ -55,6 +56,7 @@ export default class userService {
                                 .save()
                                 .then(() => {
                                     debug('New user registered');
+                                    req.flash('success_msg', 'You are now registered and can log in');
                                     res.redirect('/user/login');
                                 })
                                 .catch(err => debug(err));
@@ -63,6 +65,37 @@ export default class userService {
                 }
             });
         }
+    }
+
+    login(req, res, next) {
+        // passport.authenticate('local', {
+        //     successRedirect: '/dashboard',
+        //     failureRedirect: '/user/login',
+        //     failureFlash: true
+        //   })(req, res, next);
+        passport.authenticate('local', { failureFlash: true }, (error, user, info) => {
+            // Error
+            if (error) {
+                debug(error);
+                return next(error);
+            }
+
+            // Authentication failed
+            if (!user) {
+                debug('User authentication failed');
+                req.flash('crit_error_msg', info.message);
+                return res.redirect('/user/login');
+            }
+
+            // Authentication succeed
+            req.logIn(user, error => {
+                if (error) {
+                    debug(error);
+                    return next(error);
+                }
+                return res.redirect('/home');
+            });
+        })(req, res, next);
     }
 }
 
