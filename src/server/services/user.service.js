@@ -68,11 +68,6 @@ export default class userService {
     }
 
     login(req, res, next) {
-        // passport.authenticate('local', {
-        //     successRedirect: '/dashboard',
-        //     failureRedirect: '/user/login',
-        //     failureFlash: true
-        //   })(req, res, next);
         passport.authenticate('local', { failureFlash: true }, (error, user, info) => {
             // Error
             if (error) {
@@ -93,9 +88,15 @@ export default class userService {
                     debug(error);
                     return next(error);
                 }
-                return res.redirect('/home');
+                return res.redirect(303, '/home');
             });
         })(req, res, next);
+    }
+
+    logout(req, res, next) {
+        req.logout();
+        req.flash('success_msg', 'You are now logged out');
+        res.redirect(303, '/user/login');
     }
 }
 
