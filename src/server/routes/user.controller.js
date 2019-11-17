@@ -1,7 +1,7 @@
 import { Router } from 'express';
 const debug = require('debug')('edu:user:controller');
 import Service from '../services/user.service';
-import passport from 'passport';
+import { ensureAuthenticated } from '../config/auth';
 
 const router = Router();
 const userService = new Service();
@@ -29,10 +29,8 @@ router.post('/login', (req, res, next) => {
 });
 
 /* POST logout handler */
-router.get('/logout', (req, res) => {
-    req.logout();
-    req.flash('success_msg', 'You are now logged out');
-    res.redirect('/user/login');
+router.get('/logout', ensureAuthenticated, (req, res) => {
+    userService.logout(req, res);
 });
 
 export default router;
