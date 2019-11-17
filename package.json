@@ -9,7 +9,7 @@
   "main": "index.js",
   "scripts": {
     "build": "gulp build",
-    "start": "npm run build && node ./build/bin/www.js",
+    "start": "npm run build && @powershell $env:NODE_ENV='production'; node ./build/bin/www.js",
     "start-dev": "gulp --dev",
     "test": "jest --passWithNoTests",
     "coverage": "jest --coverage --passWithNoTests"
@@ -18,7 +18,9 @@
     "bcryptjs": "^2.4.3",
     "bootstrap": "^4.3.1",
     "connect-flash": "^0.1.1",
+    "connect-mongo": "^3.1.2",
     "cookie-parser": "^1.4.4",
+    "csurf": "^1.10.0",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
     "http-errors": "^1.7.3",
