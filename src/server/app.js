@@ -2,6 +2,7 @@
  * Dependencies
  */
 import express from 'express';
+import path from 'path';
 import createError from 'http-errors';
 import cookieParser from 'cookie-parser';
 const debug = require('debug')('edu:app');
@@ -67,8 +68,9 @@ app.use((req, res, next) => {
 /**
  * View engine setup
  */
-app.set('views', './build/views');
+app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'pug');
+console.log(path.join(__dirname, '/views'));
 
 /**
  * Routers
@@ -85,8 +87,8 @@ app.use('/user', userRouter);
  * Static files
  */
 app.use(express.static('public')); // Can be commentet out if using proxy
-app.use('/js', express.static('../../node_modules/bootstrap/dist/js'));
-app.use('/js', express.static('../../node_modules/jquery/dist'));
+app.use('/js', express.static(path.join(__dirname,'../node_modules/bootstrap/dist/js')));
+app.use('/js', express.static(path.join(__dirname, '../node_modules/jquery/dist')));
 
 /**
  * Error
