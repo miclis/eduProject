@@ -6,10 +6,10 @@
     "type": "git",
     "url": "https://github.com/miclis/eduProject.git"
   },
-  "main": "index.js",
+  "main": "build/server.js",
   "scripts": {
     "build": "gulp build",
-    "start": "npm run build && @powershell $env:NODE_ENV='production'; node ./build/bin/www.js",
+    "start": "npm run build && @powershell $env:NODE_ENV='production'; node ./build/server.js",
     "start-dev": "gulp --dev",
     "test": "jest --passWithNoTests",
     "coverage": "jest --coverage --passWithNoTests"

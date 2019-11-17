@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import app from '../app';
+import app from './app';
 import http from 'http';
 const debug = require('debug')('edu:httpserver');
 

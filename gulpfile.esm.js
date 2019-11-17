@@ -92,7 +92,7 @@ gulp.task(
         'build',
         gulp.parallel('watch', () => {
             nodemon({
-                script: './build/bin/www.js',
+                script: './build/server.js',
                 env: { NODE_ENV: 'development' },
                 exec: !isProduction ? "@powershell $env:DEBUG='edu:*'; node" : 'node',
                 ext: 'js pug',
