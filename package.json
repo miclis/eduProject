@@ -36,10 +36,10 @@
   "devDependencies": {
     "@babel/core": "^7.7.2",
     "@babel/preset-env": "^7.7.1",
-    "@babel/register": "^7.7.0",
     "babel-eslint": "^10.0.3",
     "del": "^5.1.0",
     "eslint": "^6.6.0",
+    "esm": "^3.2.25",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-cached": "^1.1.1",
