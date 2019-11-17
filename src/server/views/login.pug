@@ -15,6 +15,7 @@ block content
                     .form-group
                         label(for='password') Password
                         input#password.form-control(type='password' name='password' placeholder='Enter Password')
+                        input#csrf(type='hidden' name='_csrf' value=csrf)
                     button.btn.btn-primary.btn-block(type='submit') Login
                 p.lead.mt-4 No Account? 
                     a(href='/user/register') Sign up
