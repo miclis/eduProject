@@ -7,7 +7,6 @@ import cookieParser from 'cookie-parser';
 const debug = require('debug')('edu:app');
 import expressSession from 'express-session';
 const MongoStore = require('connect-mongo')(expressSession);
-import favicon from 'serve-favicon';
 import mongoose from 'mongoose';
 import flash from 'connect-flash';
 import passport from 'passport';
@@ -46,7 +45,6 @@ app.use(
         store: new MongoStore({ mongooseConnection: mongoose.connection }) // Session store for production
     })
 );
-app.use(favicon('./public/img/favicon.ico')); // Favicon
 app.use(flash()); // Flash
 app.use(passport.initialize()); // Passport middleware
 app.use(passport.session());
