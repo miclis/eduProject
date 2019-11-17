@@ -10,6 +10,7 @@ import expressSession from 'express-session';
 const MongoStore = require('connect-mongo')(expressSession);
 import mongoose from 'mongoose';
 import flash from 'connect-flash';
+import favicon from 'serve-favicon';
 import passport from 'passport';
 import csurf from 'csurf';
 
@@ -42,10 +43,11 @@ app.use(
         secret: 'eduEducate',
         resave: true,
         saveUninitialized: true,
-        maxAge: Date.now() + (1 * 24 * 60 * 60 * 1000),   // day * hour * min * s * ms
+        maxAge: Date.now() + 1 * 24 * 60 * 60 * 1000, // day * hour * min * s * ms
         store: new MongoStore({ mongooseConnection: mongoose.connection }) // Session store for production
     })
 );
+app.use(favicon(path.join(__dirname, '../public/img/favicon.ico')));
 app.use(flash()); // Flash
 app.use(passport.initialize()); // Passport middleware
 app.use(passport.session());
@@ -70,7 +72,6 @@ app.use((req, res, next) => {
  */
 app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'pug');
-console.log(path.join(__dirname, '/views'));
 
 /**
  * Routers
@@ -87,7 +88,7 @@ app.use('/user', userRouter);
  * Static files
  */
 app.use(express.static('public')); // Can be commentet out if using proxy
-app.use('/js', express.static(path.join(__dirname,'../node_modules/bootstrap/dist/js')));
+app.use('/js', express.static(path.join(__dirname, '../node_modules/bootstrap/dist/js')));
 app.use('/js', express.static(path.join(__dirname, '../node_modules/jquery/dist')));
 
 /**
