@@ -16,7 +16,7 @@ router.get('/login', (req, res) => {
 /* GET register page */
 router.get('/register', (req, res) => {
     debug('Register page rendered');
-    res.render('register', { title: 'Home' });
+    res.render('register', { title: 'Home', csrf: req.csrfToken() });
 });
 
 /* POST register handler */

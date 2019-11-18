@@ -21,6 +21,7 @@ block content
                     .form-group
                         label(for='password2') Confirm Password
                         input#password2.form-control(type='password' name='password2' placeholder='Confirm Password' value=password2)
+                        input#csrf(type='hidden' name='_csrf' value=csrf)
                     button.btn.btn-primary.btn-block(type='submit') Register
                 p.lead.mt-4 Already have An Account? 
                     a(href='/user/login') Sign in
