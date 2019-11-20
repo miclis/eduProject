@@ -55,7 +55,6 @@ gulp.task('scripts', () => {
                 presets: ['@babel/env']
             })
         )
-        .pipe(concat('all.js'))
         .pipe(isProduction ? uglify() : gutil.noop())
         .pipe(sourceMap ? smaps.write('.') : gutil.noop())
         .pipe(gulp.dest('./public/js'));
@@ -97,7 +96,14 @@ gulp.task(
                 exec: !isProduction ? "@powershell $env:DEBUG='edu:*'; node" : 'node',
                 ext: 'js pug',
                 tasks: ['lint'],
-                watch: ['./public/js', './build/*']
+                watch: [
+                    './build/config/*',
+                    './build/models/*',
+                    './build/routes/*',
+                    './build/services/*',
+                    './build/app.js',
+                    './build/server.js'
+                ]
             });
         })
     )

@@ -1,21 +1,26 @@
 extends layout
 
+block navbar
+    include ./partials/navbar-short
+
 block content
-    .row.mt-5
-        .col-md-6.m-auto
-            .card.card-body
-                h1.text-center.mb-3
-                    i.fas.fa-sign-in-alt
-                    |  Login
-                include ./partials/messages
-                form(action='/user/login' method='POST')
-                    .form-group
-                        label(for='email') Email
-                        input#email.form-control(type='email' name='email' placeholder='Enter Email')
-                    .form-group
-                        label(for='password') Password
-                        input#password.form-control(type='password' name='password' placeholder='Enter Password')
-                        input#csrf(type='hidden' name='_csrf' value=csrf)
-                    button.btn.btn-primary.btn-block(type='submit') Login
-                p.lead.mt-4 No Account? 
-                    a(href='/user/register') Sign up
+    .loginShowcase
+        .row.login
+            img.logo(src='/img/logo.png' alt='EduEducate')
+            .col-md-4.col-sm-6.m-auto
+                .card.card-body
+                    h1.text-center.mb-3
+                        i.fas.fa-sign-in-alt
+                        |  Login
+                    include ./partials/messages
+                    form(action='/user/login' method='POST')
+                        .form-group
+                            label(for='email') Email
+                            input#email.form-control(type='email' name='email' placeholder='Enter Email')
+                        .form-group
+                            label(for='password') Password
+                            input#password.form-control(type='password' name='password' placeholder='Enter Password')
+                            input#csrf(type='hidden' name='_csrf' value=csrf)
+                        button.btn.btn-secondary.btn-block(type='submit') Login
+                    p.lead.mt-4 No Account? 
+                        a(href='/user/register') Register

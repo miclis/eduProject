@@ -6,7 +6,7 @@ import { ensureAuthenticated } from '../config/auth';
 /* GET Welcome page */
 router.get('/', (req, res) => {
     debug('Welcome rendered');
-    res.render('index', {});
+    res.render('start', {});
 });
 
 /* GET Home page */

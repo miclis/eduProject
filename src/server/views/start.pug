@@ -1,0 +1,44 @@
+extends layout
+
+block navbar
+    include ./partials/navbar
+
+block content
+    header.showcase
+        .content
+            img.logo(src='/img/logo.png' alt='EduEducate')
+            .title Welcome to EduEducate
+            .text Take advantage of our free exercies!
+
+
+    section#about
+        .container.showcase-about
+            p Our website has been created for every one that wishes to learn English in a cool and interactive way.
+            p Below you can see the types of activities that are currently available in our service.
+    
+    section#services
+        .container.showcase-services
+            .row
+                .col-md-4.col-sm-4.text-center
+                    i.fab.fa-youtube.fa-3x
+                    h3 Videos
+                    p Learn from native speakers.
+                .col-md-4.col-sm-4.text-center
+                    i.fab.fa-readme.fa-3x
+                    h3 Readings
+                    p Read entertaining texts and answer the questions.
+                .col-md-4.col-sm-4.text-center
+                    i.fas.fa-tasks.fa-3x
+                    h3 Exercies
+                    p Try yourself in various quizes and fill-the-gap tasks.
+
+    section#beginNow
+        .container
+            .row
+                .col-md-6.col-sm-6.showcase-left
+                    .text-center
+                        i.fas.fa-forward.fa-10x
+                .col-md-6.col-sm-6.showcase-right
+                    h3 There is no time to waste!
+                    a.btn.btn-outline-light.btn-lg.mr-5(href='/user/login') Login
+                    a.btn.btn-outline-light.btn-lg(href='/user/register') Register

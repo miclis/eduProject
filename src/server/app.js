@@ -24,7 +24,10 @@ require('./config/passport')(passport);
  * Database setup
  */
 mongoose
-    .connect(keys.MongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .connect(keys.MongoURI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    })
     .then(debug('MongoDB Connected'))
     .catch(err => {
         debug('MongoDB Error');

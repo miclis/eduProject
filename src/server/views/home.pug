@@ -1,6 +1,12 @@
 extends layout
 
+block navbar
+    include ./partials/navbar-logged
+
 block content
-    h1.mt-4=title
-    p.lead.mb-3 Welcome #{name}
-    a.btn.btn-secondary(href='/user/logout') Logout
+    .home
+        .row
+            .col-12
+                h1.mt-4=title
+                p.lead.mb-3 Welcome #{name}
+                a.btn.btn-secondary(href='/user/logout') Logout
