@@ -47,7 +47,7 @@ app.use(
         resave: true,
         saveUninitialized: true,
         maxAge: Date.now() + 1 * 24 * 60 * 60 * 1000, // day * hour * min * s * ms
-        // store: new MongoStore({ mongooseConnection: mongoose.connection }) // Session store for production
+        store: new MongoStore({ mongooseConnection: mongoose.connection }) // Session store for production
     })
 );
 app.use(favicon(path.join(__dirname, '../public/img/favicon.ico')));
