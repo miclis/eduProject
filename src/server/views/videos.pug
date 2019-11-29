@@ -1,0 +1,27 @@
+extends task-layout
+
+block card-body
+    .container
+        .row
+            .col-md-9.col-lg-9.col-sm-12
+                .tab-content
+                    #video1.tab-pane.in.active
+                        h3 Fluency
+                        iframe#vid1(width="100%" height="400" src=`${link1}` frameborder="1" allow="autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+                    #video2.tab-pane.fade.in
+                        h3 Spelling
+                        iframe#vid2(width="100%" height="400" src=`${link2}` frameborder="1" allow="autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+                    #video3.tab-pane.fade.in
+                        h3 Common Mistakes
+                        iframe#vid3(width="100%" height="400" src=`${link3}` frameborder="1" allow="autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+            .col-md-3.col-lg-3.col-sm-12
+                ul.nav.nav-pills.nav-justified.mt-md-5.mt-lg-5.flex-column
+                    li.nav-item
+                        a.nav-link.active(data-toggle="pill" href="#video1") Fluency
+                    li.nav-item
+                        a.nav-link(data-toggle="pill" href="#video2") Spelling
+                    li.nav-item
+                        a.nav-link(data-toggle="pill" href="#video3") Pronunciation
+        .row
+            .col.text-md-right.mt-md-2
+                a.btn.btn-outline-secondary.btn-lg.btn-continue(href=`/tasks/readings/${reading_id}`) Continue

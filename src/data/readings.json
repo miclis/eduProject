@@ -1,0 +1,37 @@
+{
+    "exercises": [
+        {
+            "texts": [
+                {
+                    "text_number": 1,
+                    "text_title": "Keith, 18",
+                    "text": "Although a lot of my friends at university have jobs, I've decided not to. I'm worried that it would interfere too much with my studying. If I worked, I'd have to get an evening job, say, in a bar or restaurant, because during the day, I have classes and lectures. So I'd probably go to bed late every night and just be tired all the time. I'd also miss out on my social life. Of course, I do need to earn some money to pay off my student loan, but I do that during the vacations. I don't go on holiday! And I don't mind if I leave university with quite a big dept. Hopefully, I'll earn a good salary and be able to pay it off."
+                },
+                {
+                    "text_number": 2,
+                    "text_title": "Connor, 19",
+                    "text": "Although a lot of my friends at university have jobs, I've decided not to. I'm worried that it would interfere too much with my studying. If I worked, I'd have to get an evening job, say, in a bar or restaurant, because during the day, I have classes and lectures. So I'd probably go to bed late every night and just be tired all the time. I'd also miss out on my social life. Of course, I do need to earn some money to pay off my student loan, but I do that during the vacations. I don't go on holiday! And I don't mind if I leave university with quite a big dept. Hopefully, I'll earn a good salary and be able to pay it off."
+                },
+                {
+                    "text_number": 3,
+                    "text_title": "Freddie, 18",
+                    "text": "Although a lot of my friends at university have jobs, I've decided not to. I'm worried that it would interfere too much with my studying. If I worked, I'd have to get an evening job, say, in a bar or restaurant, because during the day, I have classes and lectures. So I'd probably go to bed late every night and just be tired all the time. I'd also miss out on my social life. Of course, I do need to earn some money to pay off my student loan, but I do that during the vacations. I don't go on holiday! And I don't mind if I leave university with quite a big dept. Hopefully, I'll earn a good salary and be able to pay it off."
+                }
+            ],
+            "questions": [
+                "Which person is very keen to avoid borrowing money?",
+                "Which person would rather go into debt than work?",
+                "Which person assumes that he will be able to pay off his debts after university?",
+                "Which person wants to earn extra money in order to buy fashionable clothes?",
+                "Which person might take a brake from studying in order to work?"
+            ],
+            "answers": [
+                "keith",
+                "keith",
+                "keith",
+                "keith",
+                "keith"
+            ]
+        }
+    ]
+}

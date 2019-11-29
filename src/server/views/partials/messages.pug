@@ -22,3 +22,29 @@ if crit_error_msg != ''
         | #{crit_error_msg}
         button.close(type='button' data-dismiss='alert' aria-label='Close')
             span(aria-hidden='true') &times;
+
+if points_success != ''
+    .toast.text-center
+        .toast-header.text-success
+            | Well done!
+        .toast-body
+            .container
+                .row
+                    .col
+                        i.far.fa-laugh-beam.fa-10x
+                .row.mt-2
+                    .col
+                        | #{points_success}
+
+if points_errors != ''
+    .toast.text-center
+        .toast-header.text-danger
+            | You had some mistakes!
+        .toast-body
+            .container
+                .row
+                    .col
+                        i.far.fa-sad-cry.fa-10x
+                .row.mt-2
+                    .col
+                        | #{points_errors}

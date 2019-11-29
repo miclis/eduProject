@@ -1,0 +1,21 @@
+extends layout
+
+block navbar
+    include ./partials/navbar-logged
+
+block content
+    .task-page
+        .container.task-container
+            .col-md-10.m-auto
+                .card.card-body
+                    h1.text-center.mb-3
+                        i(class=`${icon}`)
+                        |  #{title}
+                    p.text-center #{help}
+                    p.text-center #{help2}
+                    block card-body
+                        
+
+block footer
+    footer.footerFix.footerFixTask
+        p.text-center EduEducate &copy; 2019
