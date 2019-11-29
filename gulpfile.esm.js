@@ -45,6 +45,14 @@ gulp.task('pug', () => {
         .pipe(gulp.dest('./build/views'));
 });
 
+// Copy json data to build
+gulp.task('data', () => {
+    return gulp
+        .src('./src/data/**/*.json')
+        .pipe(cache('data'))
+        .pipe(gulp.dest('./build/data'));
+});
+
 // Concatenate & Minify JS
 gulp.task('scripts', () => {
     return gulp
@@ -74,12 +82,13 @@ gulp.task('server-babel', () => {
 });
 
 // Build
-gulp.task('build', gulp.series('clean', gulp.parallel('sass', 'pug', 'scripts', 'server-babel')));
+gulp.task('build', gulp.series('clean', gulp.parallel('sass', 'pug', 'data', 'scripts', 'server-babel')));
 
 // Watch files for changes
 gulp.task('watch', () => {
     gulp.watch('./src/scss/*.scss', gulp.series('sass'));
     gulp.watch('./src/server/views/**/*.pug', gulp.series('pug'));
+    gulp.watch('./src/data/**/*.json', gulp.series('data'));
     gulp.watch('./src/js/*.js', gulp.parallel('scripts'));
     gulp.watch('./src/server/**/*.js', gulp.parallel('server-babel'));
 });

@@ -29,3 +29,15 @@ sr.reveal('.showcase-right', {
     origin: 'right',
     distance: '800px'
 });
+
+sr.reveal('.showcase-tasks', {
+    duration: 2000,
+    origin: 'bottom',
+    distance: '80px'
+});
+
+sr.reveal('.showcase-cats', {
+    duration: 2000,
+    origin: 'left',
+    distance: '80px'
+});

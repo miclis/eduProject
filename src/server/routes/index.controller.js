@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 /* GET Home page */
 router.get('/home', ensureAuthenticated, (req, res) => {
     debug('Home rendered');
-    res.render('home', { title: 'Home', name: req.user.name });
+    res.render('home', { title: 'Home', name: req.user.name, score: req.user.score });
 });
 
 export default router;

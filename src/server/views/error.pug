@@ -1,6 +1,12 @@
 extends layout
 
+block navbar
+    include ./partials/navbar-short
+
 block content
-    h2= status
-    h2= message
-    pre #{error.stack}
+    .container.error
+        .text-center
+                i.fas.fa-heart-broken.fa-10x
+        h2= status
+        h2= message
+        pre.stack #{error.stack}

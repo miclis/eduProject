@@ -1,0 +1,25 @@
+extends layout
+
+block navbar
+    include ./partials/navbar-logged
+
+block content
+    .row
+        .col
+    header.v-header.container
+        .fullscreen-video-wrap
+            video(src='/img/cats.mp4' autoplay='true' loop='ture' muted='true')
+
+    .construction
+        section#cats
+            .container.showcase-cats
+                .row.title
+                    .col-md-12
+                        h2 We are working on that...
+                            
+
+
+
+block footer
+    footer.footerFix
+        p.text-center EduEducate &copy; 2019

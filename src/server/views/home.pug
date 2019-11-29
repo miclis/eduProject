@@ -4,9 +4,34 @@ block navbar
     include ./partials/navbar-logged
 
 block content
+    header.v-header.container
+        .fullscreen-video-wrap
+            video(src='/img/sparks.mov' autoplay='true' loop='ture')
+        .header-overlay
+
     .home
-        .row
-            .col-12
-                h1.mt-4=title
-                p.lead.mb-3 Welcome #{name}
-                a.btn.btn-secondary(href='/user/logout') Logout
+        section#tasks
+            .container.showcase-tasks
+                .row.title
+                    .col-md-12
+                        h2 Please select a task type
+                .row
+                    .col-md-4.col-sm-4.text-center
+                        a(href='/tasks/videos').btn.btn-secondary.task
+                            i.fab.fa-youtube.fa-3x
+                            h3 Videos
+                            p Learn from native speakers.
+                    .col-md-4.col-sm-4.text-center
+                        a(href='/tasks/readings/1').btn.btn-secondary.task
+                            i.fab.fa-readme.fa-3x
+                            h3 Readings
+                            p Read entertaining texts and answer the questions.
+                    .col-md-4.col-sm-4.text-center
+                        a(href='/tasks/exercises/1').btn.btn-secondary.task
+                            i.fas.fa-tasks.fa-3x
+                            h3 Exercies
+                            p Try yourself in various quizes and fill-the-gap tasks.
+
+block footer
+    footer.footerFix
+        p.text-center EduEducate &copy; 2019

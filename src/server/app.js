@@ -67,6 +67,8 @@ app.use((req, res, next) => {
     res.locals.success_msg = req.flash('success_msg');
     res.locals.error_msg = req.flash('error_msg');
     res.locals.crit_error_msg = req.flash('crit_error_msg');
+    res.locals.points_success = req.flash('points_success');
+    res.locals.points_errors = req.flash('points_errors');
     next();
 });
 
@@ -82,10 +84,12 @@ app.set('view engine', 'pug');
 // Routers
 import indexRouter from './routes/index.controller';
 import userRouter from './routes/user.controller';
+import tasksRouter from './routes/tasks.controller';
 
 // Routes
 app.use('/', indexRouter);
 app.use('/user', userRouter);
+app.use('/tasks', tasksRouter);
 
 /**
  * Static files

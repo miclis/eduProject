@@ -1,0 +1,38 @@
+extends task-layout
+
+block card-body
+    .container
+        .row
+            .col-md-6.text-justify
+                ul.nav.nav-tabs.nav-justified
+                    li.nav-item
+                        a.nav-link.active(data-toggle="tab" href="#text1") Text #{exercise.texts[0].text_number}
+                    li.nav-item
+                        a.nav-link(data-toggle="tab" href="#text2") Text #{exercise.texts[1].text_number}
+                    li.nav-item
+                        a.nav-link(data-toggle="tab" href="#text3") Text #{exercise.texts[2].text_number}
+
+                .tab-content
+                    #text1.tab-pane.in.active
+                        h3 #{exercise.texts[0].text_title}
+                        p #{exercise.texts[0].text}
+                    #text2.tab-pane.fade.in
+                        h3 #{exercise.texts[1].text_title}
+                        p #{exercise.texts[1].text}
+                    #text3.tab-pane.fade.in
+                        h3 #{exercise.texts[2].text_title}
+                        p #{exercise.texts[2].text}
+
+
+            .col-md-6
+                h3.text-right Questions
+
+                    form(action=`/tasks/readings` method='POST')
+                        each val, index in exercise.questions
+                            .form-group
+                                label.question(for=`q${index + 1}`)=val
+                                input.form-control(id=`q${index + 1}` type='text' name='answer' placeholder='Enter answer')
+                        .form-group
+                            input#csrf(type='hidden' name='_csrf' value=csrf)
+                            input#readingId(type='hidden' name='readingId' value=`${id}`)
+                        button.btn.btn-secondary.btn-continue(type='submit') Submit
