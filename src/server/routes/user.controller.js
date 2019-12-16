@@ -21,7 +21,7 @@ router.get('/register', (req, res) => {
 /* GET profile page */
 router.get('/profile', (req, res) => {
     debug('Profile page rendered');
-    res.render('construction', { title: 'Profile', csrf: req.csrfToken() });
+    res.render('construction', { title: 'Profile', name: req.user.name, score: req.user.score, csrf: req.csrfToken() });
 });
 
 /* POST register handler */
