@@ -11,6 +11,7 @@ block content
             video(src='/img/cats.mp4' autoplay='true' loop='ture' muted='true')
 
     .construction
+        include ./partials/messages
         section#cats
             .container.showcase-cats
                 .row.title
@@ -21,5 +22,6 @@ block content
 
 
 block footer
+    script(defer src='/js/toast.js')
     footer.footerFix
         p.text-center EduEducate &copy; 2019
